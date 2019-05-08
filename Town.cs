@@ -1,15 +1,16 @@
 
 namespace CloudyDay
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     public class Town
     {
-        public int Population { get; set; }
-        public int Location { get; set; }
+        public Int64 Population { get; set; }
+        public Int64 Location { get; set; }
         public bool Sunny { get; set; }
 
-        public Town(int population, int location)
+        public Town(Int64 population, Int64 location)
         {
             Population = population;
             Location = location;

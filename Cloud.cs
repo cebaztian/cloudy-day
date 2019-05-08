@@ -4,16 +4,16 @@ namespace CloudyDay
 
     public class Cloud
     {
-        public int Location { get; private set; }
-        public int Radius { get; private set; }
-        public int Beggining
+        public Int64 Location { get; private set; }
+        public Int64 Radius { get; private set; }
+        public Int64 Beggining
         {
             get
             {
                 return Location - Radius;
             }
         }
-        public int End
+        public Int64 End
         {
             get
             {
@@ -21,7 +21,7 @@ namespace CloudyDay
             }
         }
 
-        public Cloud(int location, int radius)
+        public Cloud(Int64 location, Int64 radius)
         {
             Location = location;
             Radius = radius;

@@ -2,16 +2,19 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
 
     class Program
     {
         static void Main(string[] args)
         {
-            var townsAmount = int.Parse(ReadConsole("Enter the number of towns [2]", "2", Validator.ValidIntValue));
+            Console.SetIn(new StreamReader(Console.OpenStandardInput(10240)));
+
+            var townsAmount = Int64.Parse(ReadConsole("Enter the number of towns [2]", "2", Validator.ValidInt64Value));
             var townsPopulations = ToList(ReadConsole("Enter the population of each town [10 100]", "10 100", Validator.ValidLongValues));
             var townsLocations = ToList(ReadConsole("Enter the location of each town [5 100]", "5 100", Validator.ValidLongValues));
-            var cloudsAmount = int.Parse(ReadConsole("Enter the number of clouds [1]", "1", Validator.ValidIntValue));
+            var cloudsAmount = Int64.Parse(ReadConsole("Enter the number of clouds [1]", "1", Validator.ValidInt64Value));
             var cloudsLocations = ToList(ReadConsole("Enter the location of each cloud [4]", "4", Validator.ValidLongValues));
             var cloudsRadius = ToList(ReadConsole("Enter the radius of each cloud [1]", "1", Validator.ValidLongValues));
 
@@ -75,10 +78,10 @@
             }
         }
 
-        private static List<int> ToList(string value)
+        private static List<Int64> ToList(string value)
         {
             var values = value.Split(' ').ToList();
-            return values.Select(val => int.Parse(val)).ToList();
+            return values.Select(val => Int64.Parse(val)).ToList();
         }
     }
 }
