@@ -16,14 +16,14 @@ namespace CloudyDay
             Clouds = new List<Cloud>();
         }
 
-        public int GetMaxSunnyPopulation()
+        public Int64 GetMaxSunnyPopulation()
         {
             var targetClouds = Clouds;
             return targetClouds.Select(cloud => GetSunnyPopulation(cloud))
                                .Max();
         }
 
-        private int GetSunnyPopulation(Cloud withoutCloud)
+        private Int64 GetSunnyPopulation(Cloud withoutCloud)
         {
             var targetClouds = Clouds.Except(new List<Cloud> { withoutCloud }).ToList();
             return Towns.Where(town => !town.isCloudy(targetClouds))

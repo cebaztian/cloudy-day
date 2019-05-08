@@ -4,16 +4,16 @@ namespace CloudyDay
 {
     public class Validator
     {
-        public static bool ValidIntValue(string inputValue)
+        public static bool ValidInt64Value(string inputValue)
         {
-            int intValue;
+            Int64 Int64Value;
 
-            if (!int.TryParse(inputValue, out intValue))
+            if (!Int64.TryParse(inputValue, out Int64Value))
             {
                 return false;
             }
 
-            if (intValue < 1 || intValue > 100000)
+            if (Int64Value < 1 || Int64Value > 100000)
             {
                 return false;
             }
@@ -25,7 +25,7 @@ namespace CloudyDay
         {
             long[] values = new long[] { };
             bool done = false;
-            Int64 intValue;
+            Int64 Int64Value;
             while (!done)
             {
                 if (!string.IsNullOrWhiteSpace(inputValues) && inputValues.Split(' ').Length > 0)
@@ -34,7 +34,7 @@ namespace CloudyDay
                     {
                         foreach (var value in inputValues.Split(' '))
                         {
-                            if (Int64.TryParse(value, out intValue))
+                            if (Int64.TryParse(value, out Int64Value))
                             {
                                 done = true;
                             }
@@ -47,15 +47,15 @@ namespace CloudyDay
             return done;
         }
 
-        public static bool ValidTownPopulations(string value, int towns)
+        public static bool ValidTownPopulations(string value, Int64 towns)
         {
-            int intValue;
-            if (int.TryParse(value, out intValue))
+            Int64 Int64Value;
+            if (Int64.TryParse(value, out Int64Value))
             {
                 return false;
             }
 
-            if (intValue < 1 || intValue > 10000000)
+            if (Int64Value < 1 || Int64Value > 10000000)
             {
                 return false;
             }
@@ -63,7 +63,7 @@ namespace CloudyDay
             return true;
         }
 
-        internal static bool Match(int amount, int lenght)
+        public static bool Match(Int64 amount, Int64 lenght)
         {
             return amount == lenght;
         }
